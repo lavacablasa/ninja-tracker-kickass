@@ -109,24 +109,24 @@
     .var commandsSize = sb.commands.items.size()
     .var patternsSize = sb.patterns.items.size()
     .var songsSize = sb.songs.size()
-    .var legattoCommands = 0
+    .var legatoCommands = 0
     .for (var i=0; i<sb.commands.items.size(); i++) {
         .var cmd = sb.commands.items.get(i)
         .if (sb.commands.refs.containsKey(cmd.name)) {
-            .eval legattoCommands = 0
+            .eval legatoCommands = 0
         } else {
-            .eval legattoCommands++
+            .eval legatoCommands++
         }
     }
-    .byte waveSize, pulseSize, filterSize, commandsSize-legattoCommands, commandsSize, patternsSize
+    .byte waveSize, pulseSize, filterSize, commandsSize-legatoCommands, commandsSize, patternsSize
     .fill waveSize, sb.wave.items.get(i).left
     .fill waveSize, sb.wave.items.get(i).right
     .fill pulseSize, sb.pulse.items.get(i).left
     .fill pulseSize, sb.pulse.items.get(i).right
     .fill filterSize, sb.filter.items.get(i).left
     .fill filterSize, sb.filter.items.get(i).right
-    .fill commandsSize - legattoCommands, (sb.commands.items.get(i).adsr >> 8)
-    .fill commandsSize - legattoCommands, (sb.commands.items.get(i).adsr >> 0) 
+    .fill commandsSize - legatoCommands, (sb.commands.items.get(i).adsr >> 8)
+    .fill commandsSize - legatoCommands, (sb.commands.items.get(i).adsr >> 0) 
     .fill commandsSize, sb.commands.items.get(i).wave
     .fill commandsSize, sb.commands.items.get(i).pulse
     .fill commandsSize, sb.commands.items.get(i).filter
