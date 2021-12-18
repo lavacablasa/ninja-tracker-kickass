@@ -593,6 +593,10 @@
         .eval error("Invalid note definition " + noteStr)
     }
 
+    .if (noteStr == "xxx") {
+        .eval noteStr = "C-4"
+    }
+
     .var toneStr = noteStr.substring(0,2)
     .var tone = notes.get(toneStr)
     .if (tone == null) {
